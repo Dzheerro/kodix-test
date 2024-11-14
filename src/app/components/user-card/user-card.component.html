@@ -1,5 +1,5 @@
-<div class="container" *ngIf="users$ | async as users; else loading">
-    <div class="container__info" *ngFor="let user of users">
+<div class="container" *ngIf="user$ | async as user; else loading">
+    <div class="container__info" *ngFor="let user of user">
         <mat-card class="user-card" appearance="outlined">
             <mat-card-header>
                 <mat-card-title>{{user.name.first}} {{user.name.last}}</mat-card-title>
@@ -8,10 +8,11 @@
             <img mat-card-image [src]="user.picture.large" alt="user-profile">
         </mat-card>
         <mat-card-actions>
-            <button mat-button routerLink="/user-profile">View More Info</button>
+            <button mat-button routerLink="/user-list/">Back</button>
         </mat-card-actions>
     </div>
 </div>
+
 
 <ng-template #loading>
     <app-loader></app-loader>
